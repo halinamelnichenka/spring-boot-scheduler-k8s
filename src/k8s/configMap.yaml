@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-scheduler
+data:
+  config.yaml: |
+    hello: "world"

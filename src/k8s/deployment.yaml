@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo-scheduler
+  name: demo-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-scheduler
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: demo-scheduler
+    spec:
+      containers:
+      - image: spring-boot-scheduler-k8s:1
+        name: spring-boot-scheduler-k8s
+        resources: {}
+        volumeMounts:
+          - name: config-volume
+            mountPath: /opt/config/
+          - name: csv-volume
+            mountPath: /csv/
+      volumes:
+        - name: config-volume
+          configMap:
+            name: demo-scheduler
+        - name: csv-volume
+          configMap:
+            name: csv-file
+status: {}

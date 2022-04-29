@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: csv-file
+data:
+  temp.csv: |
+    time,message
+    2022-01-01,text1
+    2022-01-02,text2
