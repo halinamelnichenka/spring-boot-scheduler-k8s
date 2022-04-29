@@ -1,4 +1,6 @@
-### Steps to create spring-boot app in k8s:
+#Using kubectl
+
+### 1. Steps to create spring-boot app in k8s:
 
 The following steps should be executed from the project root directory:
 ```
@@ -16,7 +18,7 @@ kubectl apply -f src/k8s/deployment.yaml
 
 ```
 
-### How to check app logs
+### 2. Steps to check app logs:
 
 1. Check what pods are running:
 ```
@@ -44,7 +46,7 @@ time,message
 2022-01-02,text2
 
 ```
-### Steps to remove spring-boot app from k8s:
+### 3. Steps to remove spring-boot app from k8s:
 
 ```
 kubectl delete deploy demo-scheduler  
@@ -56,3 +58,19 @@ kubectl delete configmap demo-scheduler
 kubectl delete configmap csv-file
 
 ```
+
+#Using helm
+
+1. Install and configure helm for mac: 
+```
+brew install helm
+```
+
+2. mvn clean install
+
+docker build -t spring-boot-scheduler-k8s:1 .
+
+helm install demo-scheduler ./src/helm/springbootschedulerk8s
+
+helm uninstall demo-scheduler
+3. 
