@@ -4,4 +4,4 @@ metadata:
   name: csv-file
 data:
   temp.csv: |
-{{ .Files.Get "temp.csv" | indent 4 }}
+{{ .Files.Get "csv/temp.csv" | indent 4 }}
