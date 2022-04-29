@@ -4,6 +4,4 @@ metadata:
   name: csv-file
 data:
   temp.csv: |
-    time,message
-    2022-01-01,text1
-    2022-01-02,text2
+{{ .Files.Get "temp.csv" | indent 4 }}
