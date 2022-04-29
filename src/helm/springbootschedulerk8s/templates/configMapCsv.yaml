@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: csv-file
+data:
+  temp.csv: |
+{{ .Files.Get "csv/temp.csv" | indent 4 }}
