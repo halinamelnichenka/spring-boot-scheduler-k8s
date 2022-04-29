@@ -1,5 +1,6 @@
-#Steps to create spring-boot app in k8s:
+### Steps to create spring-boot app in k8s:
 
+The following steps should be executed from the project root directory:
 ```
 mvn clean install
 
@@ -15,7 +16,35 @@ kubectl apply -f src/k8s/deployment.yaml
 
 ```
 
-#Steps to remove spring-boot app from k8s:
+### How to check app logs
+
+1. Check what pods are running:
+```
+kubectl get pods
+```
+
+Output should be similar to:
+```
+NAME                              READY   STATUS    RESTARTS   AGE
+demo-scheduler-5654cb6f56-wz5fq   1/1     Running   0          2m22s
+```
+
+2. Then manually copy pod name (ex: demo-scheduler-5654cb6f56-wz5fq)
+
+3. Check out pod's logs:
+```
+kubectl logs <insert-pod-name>
+```
+
+Csv content should be present in the logs. Similar to:
+```
+2022-04-29 11:47:54.712  INFO 1 --- [   scheduling-1] c.e.s.scheduler.SandboxScheduler         : Csv: 
+time,message
+2022-01-01,text1
+2022-01-02,text2
+
+```
+### Steps to remove spring-boot app from k8s:
 
 ```
 kubectl delete deploy demo-scheduler  
